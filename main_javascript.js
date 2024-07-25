@@ -39,9 +39,11 @@ async function cadastrarInformacoes() {
             await input.sendKeys(valor);
         }
 
-        // Verificar e preencher os campos
+        //Nome
         await preencherCampo('Nome Completo', dados.nome);
+        //Telefone
         await preencherCampo('Telefone', dados.telefone);
+        //Email
         await preencherCampo('E-mail', dados.email);
 
         // Validação do e-mail
@@ -52,11 +54,10 @@ async function cadastrarInformacoes() {
             console.log('Email válido! :)');
         }
 
-        // Clicar no botão "Próximo"
         let btnProx = await webdriver.wait(until.elementLocated(By.xpath('//*[@id="next-btn"]')), 10000);
         await btnProx.click();
-
-        // Continuar preenchendo os outros campos
+        
+        //CEP
         await preencherCampo('CEP', dados.cep);
         await preencherCampo('Endereço', dados.endereco);
         await preencherCampo('Cidade', dados.cidade);
@@ -64,7 +65,7 @@ async function cadastrarInformacoes() {
 
         await btnProx.click();
 
-        // Preencher informações do cartão de crédito
+        //Cartão de crédito
         await preencherCampo('Nome do Titular', dados.nome);
         await preencherCampo('Número do Cartão', dados.num_cartao_credito);
         await preencherCampo('Data de Validade', dados.dta_val_cartao);

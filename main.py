@@ -20,7 +20,7 @@ def cadastrarInformacoes():
         formulario = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="payment-form"]')))
         print('O formulário foi identificado na página, prosseguindo...')
     except:
-        print('O formulário não foi identificado na página.')
+        return 'O formulário não foi identificado na página.'
 
     #Dados fictícios
     nome = 'Marcos dos Santos Moreira'
@@ -39,10 +39,12 @@ def cadastrarInformacoes():
     label_nome = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Nome Completo')]")))
     input_nome = webdriver.find_element(By.ID, label_nome.get_attribute("for"))
     input_nome.send_keys(nome)
+
     #Telefone
     label_telefone = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Telefone')]")))
     input_telefone = webdriver.find_element(By.ID, label_telefone.get_attribute("for"))
     input_telefone.send_keys(telefone)
+
     #Email
     label_email = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'E-mail')]")))
     input_email = webdriver.find_element(By.ID, label_email.get_attribute("for"))
@@ -60,14 +62,17 @@ def cadastrarInformacoes():
     label_cep = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'CEP')]")))
     input_cep = webdriver.find_element(By.ID, label_cep.get_attribute("for"))
     input_cep.send_keys(cep)
+
     #Endereço
     label_endereco = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Endereço')]")))
     input_endereco = webdriver.find_element(By.ID, label_endereco.get_attribute("for"))
     input_endereco.send_keys(endereco)
+
     #Cidade
     label_cidade = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Cidade')]")))
     input_cidade = webdriver.find_element(By.ID, label_cidade.get_attribute("for"))
     input_cidade.send_keys(cidade)
+
     #Estado
     label_estado = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Estado')]")))
     input_estado = webdriver.find_element(By.ID, label_estado.get_attribute("for"))
@@ -79,14 +84,17 @@ def cadastrarInformacoes():
     label_titular = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Nome do Titular')]")))
     input_nome = webdriver.find_element(By.ID, label_titular.get_attribute("for"))
     input_nome.send_keys(nome)
+
     #Número do cartão de crédito
     label_num_cartao = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Número do Cartão')]")))
     input_num_cartao = webdriver.find_element(By.ID, label_num_cartao.get_attribute("for"))
     input_num_cartao.send_keys(num_cartao_credito)
+
     #Data de validade do cartão de crédito
     label_val_cartao = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Data de Validade')]")))
     input_val_cartao = webdriver.find_element(By.ID, label_val_cartao.get_attribute("for"))
     input_val_cartao.send_keys(dta_val_cartao)
+
     #CVV do cartão de crédito
     label_cvv_cartao = WebDriverWait(webdriver, 10).until(EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'CVV')]")))
     input_cvv_cartao = webdriver.find_element(By.ID, label_cvv_cartao.get_attribute("for"))
@@ -103,7 +111,7 @@ def cadastrarInformacoes():
         else:
             print(f"A mensagem de sucesso foi localizada, mas não está visível na tela.")
     except:
-        print('Não identificou a mensagem de formulário concluído.')
+        return 'Não identificou a mensagem de formulário concluído.'
 
     #webdriver.quit()
 
